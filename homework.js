@@ -53,78 +53,20 @@ console.log(me);
 
 const one = [-10, -3, 4, -2, 8, 9, -3]
 
-function isNegative(number){
-    if(number < 0){
-        return number
-    }
+function square(num){ 
+    return Math.pow(num,2)
 }
 
 function squareNegatives(arr){
-    const squared = []
-    squared.push((arr.forEach(isNegative)))
+    const negatives = []
+
+    for (let i of arr){
+        if(i<0){
+            negatives.push(i)
+        }
+    }
+    const squared = negatives.map(square)
     return squared
 }
 
-for (let i = 0; i<(exerciseOneArr.length -1); i++){
-    if(exerciseOneArr[i] + 1 !== exerciseOneArr[i+1]) {
-    console.log(i+1)}
-  }
-
-
-names.forEach(callBack);
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.push("Kiwi");
-
-// Array.prototype.filter()
-let cities = ['Chicago', 'Boston', 'Chattanooga', 'Baton Rouge', 'Champaign', 'Denver'];
-console.log(cities);
-
-function startsWithC(cityName){
-    return cityName[0].toUpperCase() === 'C'
-}
-
-let cNameCitiesMap = cities.map(startsWithC);
-console.log(cNameCitiesMap);
-let cNameCitiesFilter = cities.filter(startsWithC);
-console.log(cNameCitiesFilter);
-
-
-
-
-function isNegative(number){
-    if(number < 0){
-        return number
-    }
-}
-
-class Animal{
-    constructor(name, energy=10){
-        this.name = name;
-        this.energy = energy;
-    }
-
-    eat(amount){
-        this.energy += amount;
-        console.log(`${this.name} is eating and energy is now ${this.energy}`)
-    }
-
-    sleep(amount){
-        this.energy += amount;
-        console.log(`${this.name} is sleeping and energy is now ${this.energy}`)
-    }
-
-    play(amount){
-        this.energy -= amount;
-        console.log(`${this.name} is playing and energy is now ${this.energy}`)
-    }
-}
-
-let buddy = new Animal('Buddy', 10);
-buddy.eat(10);
-buddy.play(5);
-console.log(buddy);
-
-let leo = new Animal('Leo', 20);
-leo.eat(5);
-leo.play(15);
-console.log(leo);
+squareNegatives(one)
